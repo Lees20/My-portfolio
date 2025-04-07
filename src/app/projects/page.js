@@ -119,101 +119,102 @@ export default function Projects() {
 
       {/* Modal */}
       <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-lg z-50 flex items-center justify-center px-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedProject(null)}
-          >
-            <motion.div
-              onClick={(e) => e.stopPropagation()}
-              initial={{ y: 30, opacity: 0, scale: 0.96 }}
-              animate={{ y: 0, opacity: 1, scale: 1 }}
-              exit={{ y: 30, opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_60px_rgba(0,0,0,0.4)] rounded-3xl max-w-3xl w-full p-10 relative overflow-hidden group"
-            >
-              {/* Glow border ring */}
-              <div className="absolute inset-0 border border-purple-400/20 rounded-3xl blur-[100px] opacity-50 pointer-events-none z-0" />
+  {selectedProject && (
+    <motion.div
+      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-lg flex items-center justify-center px-2 sm:px-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setSelectedProject(null)}
+    >
+      <motion.div
+        onClick={(e) => e.stopPropagation()}
+        initial={{ y: 30, opacity: 0, scale: 0.96 }}
+        animate={{ y: 0, opacity: 1, scale: 1 }}
+        exit={{ y: 30, opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        className="w-full max-w-sm sm:max-w-md md:max-w-2xl max-h-[85vh] overflow-y-auto
+                   bg-white/5 backdrop-blur-2xl border border-white/10 shadow-xl
+                   rounded-xl sm:rounded-2xl p-4 sm:p-6 relative group
+                   scrollbar-hide sm:scrollbar-thin scrollbar-thumb-white/10"
+      >
+        {/* Glow Ring */}
+        <div className="absolute inset-0 border border-purple-400/20 rounded-xl blur-[100px] opacity-50 pointer-events-none z-0" />
 
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-5 right-5 text-sm text-zinc-300 hover:text-white transition z-10"
+        {/* Close Button */}
+        <button
+          onClick={() => setSelectedProject(null)}
+          className="absolute top-4 right-4 text-base text-zinc-300 hover:text-white transition z-10"
+        >
+          ✕
+        </button>
+
+        {/* Content */}
+        <div className="relative z-10 space-y-4 text-sm sm:text-base">
+          <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 animate-gradient">
+            {selectedProject.title}
+          </h2>
+
+          {selectedProject.image && (
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-white/10 shadow">
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300"
+              />
+            </div>
+          )}
+
+          <div className="text-zinc-300 space-y-2 leading-relaxed whitespace-pre-wrap">
+            {selectedProject.description
+              .split('\n')
+              .filter((line) => line.trim() !== '')
+              .map((line, index) => (
+                <p key={index}>{line.trim()}</p>
+              ))}
+          </div>
+
+          <div className="flex flex-wrap gap-2 pt-2">
+            {selectedProject.tech.map((tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/10"
               >
-                ✕
-              </button>
+                {tech}
+              </span>
+            ))}
+          </div>
 
-              {/* Content */}
-              <div className="relative z-10 space-y-6">
-                {/* Title */}
-                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 animate-gradient">
-                  {selectedProject.title}
-                </h2>
+          <div className="flex flex-col sm:flex-row gap-3 pt-3">
+            {selectedProject.github && (
+              <a
+                href={selectedProject.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:opacity-90 transition text-center"
+              >
+                GitHub
+              </a>
+            )}
+            {selectedProject.demo && (
+              <a
+                href={selectedProject.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-4 py-2 rounded-full bg-indigo-500 text-white text-sm font-semibold hover:bg-indigo-600 transition text-center"
+              >
+                Live Demo
+              </a>
+            )}
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
-                {/* Image */}
-                {selectedProject.image && (
-                  <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 shadow-md">
-                    <img
-                      src={selectedProject.image}
-                      alt={selectedProject.title}
-                      className="absolute inset-0 w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300"
-                    />
-                  </div>
-                )}
 
-                {/* Description */}
-                <div className="text-base text-zinc-300 space-y-3 leading-relaxed whitespace-pre-wrap">
-                  {selectedProject.description
-                    .split('\n')
-                    .filter((line) => line.trim() !== '')
-                    .map((line, index) => (
-                      <p key={index}>{line.trim()}</p>
-                    ))}
-                </div>
 
-                {/* Tech badges */}
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-sm font-medium bg-white/10 text-white rounded-full border border-white/10 hover:bg-white/20 transition"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex gap-4 pt-4 flex-wrap">
-                  {selectedProject.github && (
-                    <a
-                      href={selectedProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-5 py-2 rounded-full bg-white text-black text-sm font-semibold hover:opacity-90 transition shadow"
-                    >
-                      GitHub
-                    </a>
-                  )}
-                  {selectedProject.demo && (
-                    <a
-                      href={selectedProject.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-5 py-2 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition"
-                    >
-                      Live Demo
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </main>
   );
 }

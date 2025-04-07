@@ -72,16 +72,38 @@ export default function About() {
   initial={{ opacity: 0, scale: 0.95 }}
   animate={{ opacity: 1, scale: 1 }}
   transition={{ duration: 0.6, delay: 0.4 }}
-  className="rounded-3xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 p-6 md:p-8 shadow-xl text-left max-w-3xl mx-auto space-y-5"
+  className="rounded-3xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 px-5 py-6 sm:px-6 md:px-8 shadow-xl text-left max-w-3xl mx-auto space-y-6"
 >
-  <h2 className="text-2xl font-bold text-zinc-800 dark:text-white/90">What I Do</h2>
-  <ul className="list-disc list-inside text-zinc-700 dark:text-muted-foreground space-y-2 pl-2">
-    <li>🧩 Designing systems that feel intuitive, polished, and cohesive</li>
-    <li>⚡ Creating animated interfaces with Framer Motion & React</li>
-    <li>🛠 Building full-stack apps with Next.js, Node.js, MongoDB</li>
-    <li>🧠 Exploring ideas in AI, ambient design, and generative UI</li>
+  <h2 className="text-xl sm:text-2xl font-bold text-zinc-800 dark:text-white/90">
+    What I Do
+  </h2>
+  <ul className="space-y-4">
+    {[
+      {
+        icon: '🧩',
+        text: 'Designing systems that feel intuitive, polished, and cohesive',
+      },
+      {
+        icon: '⚡',
+        text: 'Creating animated interfaces with Framer Motion & React',
+      },
+      {
+        icon: '🛠',
+        text: 'Building full-stack apps with Next.js, Node.js, MongoDB',
+      },
+      {
+        icon: '🧠',
+        text: 'Exploring ideas in AI, ambient design and generative UI',
+      },
+    ].map((item, index) => (
+      <li key={index} className="flex items-start gap-3 text-zinc-700 dark:text-muted-foreground text-sm sm:text-base">
+        <span className="text-lg">{item.icon}</span>
+        <span>{item.text}</span>
+      </li>
+    ))}
   </ul>
 </motion.div>
+
 
 
         <motion.div
