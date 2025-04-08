@@ -125,7 +125,7 @@ export default function Projects() {
 
         <button
           onClick={() => setSelectedProject(project)}
-          className="mt-4 inline-block text-indigo-500 dark:text-indigo-400 hover:underline text-sm font-medium"
+          className="no-cursor-label mt-4 inline-block text-indigo-500 dark:text-indigo-400 hover:underline text-sm font-medium"
         >
           View Details →
         </button>
@@ -161,7 +161,7 @@ export default function Projects() {
         {/* ❌ Close Button */}
         <button
           onClick={() => setSelectedProject(null)}
-          className="sticky top-0 z-20 ml-auto mb-3 block p-2 w-fit rounded-full bg-black/40 hover:bg-black/60 text-white text-xl sm:text-base transition"
+          className="no-cursor-label sticky top-0 z-20 ml-auto mb-3 block p-2 w-fit rounded-full bg-black/40 hover:bg-black/60 text-white text-xl sm:text-base transition"
           aria-label="Close modal"
         >
           ✕
