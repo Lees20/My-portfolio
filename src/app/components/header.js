@@ -29,11 +29,12 @@ export default function Header() {
 
   return (
     <>
-      {/* 🔹 Logo */}
-      <div className="fixed top-[48px] left-6 z-50">
+      {/* Logo */}
+      <div className="no-cursor-label fixed top-[48px] left-6 z-50">
         <Link
           href="/"
           className={`
+            no-cursor-label
             text-2xl sm:text-3xl font-extrabold tracking-tight
             bg-clip-text text-transparent
             bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500
@@ -46,7 +47,7 @@ export default function Header() {
         </Link>
       </div>
 
-      {/* 🔸 Desktop Nav */}
+      {/* Desktop Nav */}
       <div className="hidden md:block fixed top-8 left-1/2 -translate-x-1/2 transform z-50">
         <header
           className="relative px-10 py-4 rounded-full border border-white/10 shadow backdrop-blur-2xl bg-background/50"
@@ -64,7 +65,7 @@ export default function Header() {
             ))}
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="ml-4 p-2 rounded-full hover:bg-muted-foreground/10 transition"
+              className="no-cursor-label ml-4 p-2 rounded-full hover:bg-muted-foreground/10 transition"
               aria-label="Toggle theme"
             >
               <AnimatePresence mode="wait">
