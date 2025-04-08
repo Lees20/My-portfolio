@@ -13,6 +13,8 @@ export const metadata = {
   description: 'Pantelis Karabetsos — software engineer crafting modern, functional, and user-centric web experiences.',
   icons: {
     icon: "/logo.png", 
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 

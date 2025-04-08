@@ -1,8 +1,8 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 
 export default function CustomCursor() {
   const { theme } = useTheme();
@@ -10,13 +10,16 @@ export default function CustomCursor() {
   const [hovering, setHovering] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
+  // Motion values for cursor position
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
 
+  // Spring animation for glow effect
   const glowX = useSpring(cursorX, { damping: 30, stiffness: 200 });
   const glowY = useSpring(cursorY, { damping: 30, stiffness: 200 });
 
   useEffect(() => {
+    setMounted(true);
     setIsTouchDevice(window.matchMedia('(hover: none) and (pointer: coarse)').matches);
 
     const handleMouseMove = (e) => {
@@ -25,18 +28,19 @@ export default function CustomCursor() {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    setMounted(true);
-
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [cursorX, cursorY]);
 
-  // Attach hover listeners and keep them updated
   useEffect(() => {
     if (!mounted || isTouchDevice) return;
 
-    const addHoverListeners = () => {
-      const interactiveEls = document.querySelectorAll('a, button:not(.no-cursor-label)');
+    const handleMouseEnter = () => setHovering(true);
+    const handleMouseLeave = () => setHovering(false);
 
+    const addHoverListeners = () => {
+      const interactiveEls = document.querySelectorAll(
+        'a:not(.no-cursor-label), button:not(.no-cursor-label)'
+      );
 
       interactiveEls.forEach((el) => {
         el.addEventListener('mouseenter', handleMouseEnter);
@@ -51,21 +55,15 @@ export default function CustomCursor() {
       };
     };
 
-    const handleMouseEnter = () => setHovering(true);
-    const handleMouseLeave = () => setHovering(false);
-
     const removeListeners = addHoverListeners();
 
-    // MutationObserver to watch DOM changes (e.g., Next.js navigation)
+    // Observe DOM for changes (due to routing/navigation)
     const observer = new MutationObserver(() => {
-      removeListeners(); // cleanup previous
-      addHoverListeners(); // re-attach to new elements
+      removeListeners();
+      addHoverListeners();
     });
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
+    observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       observer.disconnect();
@@ -77,16 +75,16 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Glow */}
+      {/* Glow effect */}
       <motion.div
         className="fixed top-0 left-0 w-40 h-40 rounded-full pointer-events-none z-[9998]
                    bg-white opacity-5 blur-3xl mix-blend-screen will-change-transform"
         style={{ x: glowX, y: glowY }}
       />
 
-      {/* Cursor dot or label */}
+      {/* Cursor */}
       <motion.div
-        className={`fixed top-0 left-0 pointer-events-none z-[9999] transition-all duration-150 ease-out flex items-center justify-center ${
+        className={`fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center transition-all duration-150 ease-out ${
           hovering
             ? 'bg-white text-black py-1 px-3 rounded-full'
             : 'w-6 h-6 rounded-full bg-white shadow-[0_0_12px_4px_rgba(255,255,255,0.5)] mix-blend-difference'

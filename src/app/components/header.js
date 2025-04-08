@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -29,29 +29,28 @@ export default function Header() {
 
   return (
     <>
-      {/* Logo */}
-      <div className="no-cursor-label fixed top-[48px] left-6 z-50">
-        <Link
-          href="/"
-          className={`
-            no-cursor-label
-            text-2xl sm:text-3xl font-extrabold tracking-tight
-            bg-clip-text text-transparent
-            bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500
-            hover:opacity-90 transition-colors duration-300
-            animate-gradient
-            ${urbanist.className}
-          `}
-        >
-          Pantelis
+      {/* 🔹 Logo */}
+      <div className="fixed top-[48px] left-6 z-50">
+        <Link href="/" legacyBehavior>
+          <a
+            className={`
+              no-cursor-label
+              text-2xl sm:text-3xl font-extrabold tracking-tight
+              bg-clip-text text-transparent
+              bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500
+              hover:opacity-90 transition-colors duration-300
+              animate-gradient
+              ${urbanist.className}
+            `}
+          >
+            Pantelis
+          </a>
         </Link>
       </div>
 
-      {/* Desktop Nav */}
+      {/* 🔸 Desktop Nav */}
       <div className="hidden md:block fixed top-8 left-1/2 -translate-x-1/2 transform z-50">
-        <header
-          className="relative px-10 py-4 rounded-full border border-white/10 shadow backdrop-blur-2xl bg-background/50"
-        >
+        <header className="relative px-10 py-4 rounded-full border border-white/10 shadow backdrop-blur-2xl bg-background/50">
           <div className="absolute inset-0 rounded-full border border-primary/20 blur-[8px] pointer-events-none z-0" />
           <div className="relative z-10 flex items-center gap-8 text-base text-foreground font-medium tracking-tight">
             {links.map((link) => (
@@ -84,7 +83,7 @@ export default function Header() {
         </header>
       </div>
 
-      {/* 📱 Mobile Nav Button */}
+      {/* 📱 Mobile Nav Toggle Button */}
       <div className="md:hidden fixed top-9 right-6 z-50">
         <button
           onClick={() => setMobileOpen((prev) => !prev)}
@@ -94,7 +93,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* 📱 Mobile Menu */}
+      {/* 📱 Mobile Nav Panel */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.nav
@@ -113,27 +112,27 @@ export default function Header() {
                 {link.name}
               </Link>
             ))}
-           <button
-  onClick={() => {
-    setTheme(theme === "dark" ? "light" : "dark");
-    setMobileOpen(false);
-  }}
-  className="flex items-center gap-2 text-base font-medium text-foreground hover:text-primary transition"
->
-  <AnimatePresence mode="wait">
-    <motion.span
-      key={theme}
-      initial={{ opacity: 0, rotate: -45, scale: 0.9 }}
-      animate={{ opacity: 1, rotate: 0, scale: 1 }}
-      exit={{ opacity: 0, rotate: 45, scale: 0.9 }}
-      transition={{ duration: 0.25 }}
-      className="block"
-    >
-      {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-    </motion.span>
-  </AnimatePresence>
-  {theme === "dark" ? "Light Mode" : "Dark Mode"}
-</button>
+            <button
+              onClick={() => {
+                setTheme(theme === "dark" ? "light" : "dark");
+                setMobileOpen(false);
+              }}
+              className="flex items-center gap-2 text-base font-medium text-foreground hover:text-primary transition"
+            >
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={theme}
+                  initial={{ opacity: 0, rotate: -45, scale: 0.9 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 45, scale: 0.9 }}
+                  transition={{ duration: 0.25 }}
+                  className="block"
+                >
+                  {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                </motion.span>
+              </AnimatePresence>
+              {theme === "dark" ? "Light Mode" : "Dark Mode"}
+            </button>
           </motion.nav>
         )}
       </AnimatePresence>
