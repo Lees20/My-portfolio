@@ -84,23 +84,26 @@ export default function CustomCursor() {
 
       {/* Cursor */}
       <motion.div
-       className={`fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center transition-all duration-150 ease-out ${
-        hovering
-          ? 'px-4 py-2 rounded-full text-black dark:text-white font-extrabold text-sm backdrop-blur-md bg-white/80 dark:bg-white/10 border border-black/10 dark:border-white/20 shadow-md'
-          : 'w-6 h-6 rounded-full bg-white shadow-[0_0_12px_4px_rgba(255,255,255,0.5)] mix-blend-difference'
-      }`}
-      
-        style={{ x: cursorX, y: cursorY }}
+         className={`fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center transition-all duration-150 ease-out ${
+          hovering
+           ? `px-4 py-2 rounded-full font-extrabold text-sm backdrop-blur-md
+          ${theme === 'light'
+           ? 'text-black bg-white/60 border border-zinc-300 shadow-[0_0_30px_rgba(0,0,0,0.06)]'
+           : 'text-white bg-white/10 border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.1)]'}`
+           : 'w-6 h-6 rounded-full bg-white shadow-[0_0_12px_4px_rgba(255,255,255,0.5)] mix-blend-difference'
+          }`}
+            style={{ x: cursorX, y: cursorY }}
       >
-        <motion.span
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={hovering ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.2 }}
-          className="text-base font-extrabold leading-none"
-        >
-          Visit
-        </motion.span>
-      </motion.div>
+      <motion.span
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={hovering ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+       transition={{ duration: 0.2 }}
+       className="text-base leading-none"
+     >
+     Visit
+       </motion.span>
+    </motion.div>
+
     </>
   );
 }

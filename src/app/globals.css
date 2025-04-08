@@ -30,6 +30,16 @@
     background-position: 0% 50%;
   }
 }
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.2);
+  }
+}
 
 .animate-gradient {
   background-size: 300% 300%;
@@ -47,4 +57,10 @@ a, button {
 }
 html, body {
   cursor: none;
+}
+input,
+textarea,
+button,
+select {
+  cursor: none !important;
 }
