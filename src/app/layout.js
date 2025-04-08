@@ -38,6 +38,7 @@ export default function RootLayout({ children }) {
             <CustomCursor />
             {children}
             <Footer />
+            <VercelToolbar />
           </div>
         </ThemeProvider>
       </body>
