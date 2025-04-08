@@ -42,7 +42,7 @@ export default function Contact() {
     <main className="relative min-h-screen flex flex-col bg-background text-foreground transition-colors duration-500 overflow-hidden cursor-none">
       <Header />
 
-      {/* 🔮 Animated Blob */}
+      {/*  Animated Blob */}
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
@@ -54,7 +54,7 @@ export default function Contact() {
         className={`absolute -top-96 -left-80 w-[1200px] h-[1200px] rounded-full z-0 ${blobColor} ${blur}`}
       />
 
-      {/* 📨 Contact Section */}
+      {/* Contact Section */}
       <section className="relative z-10 flex-grow px-6 md:px-20 pt-32 pb-16 sm:pb-32 max-w-2xl mx-auto text-center space-y-12">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ export default function Contact() {
           Whether you have a question, a collaboration idea, or just want to say hi — feel free to drop me a message below.
         </motion.p>
 
-        {/* 📬 Contact Form */}
+        {/* Contact Form */}
         <form className="space-y-6 text-left" onSubmit={handleSubmit}>
           {['name', 'email', 'message'].map((field) => (
             <div key={field}>
@@ -108,12 +108,12 @@ export default function Contact() {
             whileTap={{ scale: 0.98 }}
             type="submit"
             disabled={isSubmitting}
-            className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold shadow hover:opacity-90 transition text-center"
+            className="no-cursor-label w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold shadow hover:opacity-90 transition text-center"
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </motion.button>
 
-          {/* ✅ Feedback */}
+          {/* Feedback */}
           {status && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -136,7 +136,7 @@ export default function Contact() {
           )}
         </form>
 
-        {/* ✉️ Email Section */}
+        {/* Email Section */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
