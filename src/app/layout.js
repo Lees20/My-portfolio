@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
             {children}
             <Footer />
             <SpeedInsights />
-            <VercelToolbar />
+        
           </div>
         </ThemeProvider>
       </body>
