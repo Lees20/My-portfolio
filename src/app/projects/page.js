@@ -53,6 +53,24 @@ export default function Projects() {
       github: 'https://github.com/Lees20/PayrollApp',
       demo: '',
     },
+    {
+      id: 5,
+      title: 'Personal Portfolio Website',
+      description: `
+        A fully custom, animated portfolio built with Next.js and TailwindCSS.
+        Includes scroll-animated sections, ambient blobs and a live contact form with email API.
+        Fully responsive, with light/dark theme support and modern UI interactions.
+      `,
+      tech: [
+        'Next.js',
+        'TailwindCSS',
+        'Framer Motion',
+        'Nodemailer',
+        'Next-Themes',
+        'Lucide Icons',
+      ],
+      github: 'https://github.com/Lees20/My-portfolio',
+    }
   ];
 
   return (

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useMotionValue } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
@@ -13,20 +13,22 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
 
+  // Smooth trailing motion for glow
+  const glowX = useSpring(cursorX, { damping: 30, stiffness: 200 });
+  const glowY = useSpring(cursorY, { damping: 30, stiffness: 200 });
+
   useEffect(() => {
-    setIsTouchDevice(window.matchMedia("(hover: none) and (pointer: coarse)").matches);
+    setIsTouchDevice(window.matchMedia('(hover: none) and (pointer: coarse)').matches);
 
     const handleMouseMove = (e) => {
       cursorX.set(e.clientX - 12);
       cursorY.set(e.clientY - 12);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove);
     setMounted(true);
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [cursorX, cursorY]);
 
   useEffect(() => {
@@ -35,16 +37,16 @@ export default function CustomCursor() {
     const handleMouseEnter = () => setHovering(true);
     const handleMouseLeave = () => setHovering(false);
 
-    const interactiveEls = document.querySelectorAll("a, button");
+    const interactiveEls = document.querySelectorAll('a, button');
     interactiveEls.forEach((el) => {
-      el.addEventListener("mouseenter", handleMouseEnter);
-      el.addEventListener("mouseleave", handleMouseLeave);
+      el.addEventListener('mouseenter', handleMouseEnter);
+      el.addEventListener('mouseleave', handleMouseLeave);
     });
 
     return () => {
       interactiveEls.forEach((el) => {
-        el.removeEventListener("mouseenter", handleMouseEnter);
-        el.removeEventListener("mouseleave", handleMouseLeave);
+        el.removeEventListener('mouseenter', handleMouseEnter);
+        el.removeEventListener('mouseleave', handleMouseLeave);
       });
     };
   }, [mounted, isTouchDevice]);
@@ -53,19 +55,19 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Spotlight effect */}
+      {/* ✨ Smooth trailing glow */}
       <motion.div
         className="fixed top-0 left-0 w-40 h-40 rounded-full pointer-events-none z-[9998]
-                   bg-white opacity-5 blur-3xl mix-blend-screen transition duration-300"
-        style={{ x: cursorX, y: cursorY }}
+                   bg-white opacity-5 blur-3xl mix-blend-screen will-change-transform"
+        style={{ x: glowX, y: glowY }}
       />
 
-      {/* Cursor dot or label */}
+      {/* ⚪ Cursor dot or label */}
       <motion.div
         className={`fixed top-0 left-0 pointer-events-none z-[9999] transition-all duration-150 ease-out flex items-center justify-center ${
           hovering
-            ? "bg-white text-black py-1 px-3 rounded-full"
-            : "w-6 h-6 rounded-full bg-white shadow-[0_0_12px_4px_rgba(255,255,255,0.5)] mix-blend-difference"
+            ? 'bg-white text-black py-1 px-3 rounded-full'
+            : 'w-6 h-6 rounded-full bg-white shadow-[0_0_12px_4px_rgba(255,255,255,0.5)] mix-blend-difference'
         }`}
         style={{ x: cursorX, y: cursorY }}
       >
