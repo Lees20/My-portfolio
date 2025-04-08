@@ -5,7 +5,9 @@ import CustomCursor from "./components/CustomCursor";
 import Header from './components/header';
 import Footer from './components/footer';
 import Script from 'next/script';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { VercelToolbar } from '@vercel/toolbar/next';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -22,12 +24,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Plausible Analytics Script */}
+        {/* ✅ Plausible Analytics */}
         <Script
           async
           defer
-          data-domain="panteliskarabetsos.com" 
-          src="çç/js/plausible.js"
+          data-domain="panteliskarabetsos.com"
+          src="https://plausible.io/js/script.js"
         />
       </head>
 
@@ -38,6 +40,7 @@ export default function RootLayout({ children }) {
             <CustomCursor />
             {children}
             <Footer />
+            <SpeedInsights />
             <VercelToolbar />
           </div>
         </ThemeProvider>
