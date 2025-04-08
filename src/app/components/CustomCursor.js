@@ -84,11 +84,12 @@ export default function CustomCursor() {
 
       {/* Cursor */}
       <motion.div
-        className={`fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center transition-all duration-150 ease-out ${
-          hovering
-            ? 'bg-white text-black py-1 px-3 rounded-full'
-            : 'w-6 h-6 rounded-full bg-white shadow-[0_0_12px_4px_rgba(255,255,255,0.5)] mix-blend-difference'
-        }`}
+       className={`fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center transition-all duration-150 ease-out ${
+        hovering
+          ? 'px-4 py-2 rounded-full text-black dark:text-white font-extrabold text-sm backdrop-blur-md bg-white/80 dark:bg-white/10 border border-black/10 dark:border-white/20 shadow-md'
+          : 'w-6 h-6 rounded-full bg-white shadow-[0_0_12px_4px_rgba(255,255,255,0.5)] mix-blend-difference'
+      }`}
+      
         style={{ x: cursorX, y: cursorY }}
       >
         <motion.span
