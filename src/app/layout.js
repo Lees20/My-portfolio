@@ -14,9 +14,9 @@ export const metadata = {
   title: 'Pantelis Karabetsos | Computer Engineer',
   description: 'Pantelis Karabetsos — software engineer crafting modern, functional, and user-centric web experiences.',
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 

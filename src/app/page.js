@@ -57,7 +57,7 @@ export default function Home() {
       <section className="relative z-10 flex flex-col items-center justify-center text-center gap-8 sm:gap-12 px-4 sm:px-6 md:px-20 pt-24 sm:pt-32 pb-20 sm:pb-24 min-h-[calc(100vh-6rem)]">
         <div className="space-y-8 max-w-3xl">
           {/* Animated Gradient Headline */}
-          <div className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-indigo-500 via-purple-500 to-fuchsia-500 animate-gradient">
+          <div className="text-5xl sm:text-5xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-indigo-500 via-purple-500 to-fuchsia-500 animate-gradient">
             {["Engineer", "Builder", "Creator"].map((word, index) => (
               <motion.div
                 key={word}
@@ -87,17 +87,31 @@ export default function Home() {
 
           {/* CTA */}
           <Link href="/projects">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-              className="mt-6 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:opacity-90 transition"
-            >
-              View Projects
-            </motion.button>
-          </Link>
+       <motion.button
+         whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)" }}
+         whileTap={{ scale: 0.98 }}
+         initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+         transition={{
+         duration: 0.4,
+         ease: "easeOut",
+         type: "spring",
+        bounce: 0.25,
+       }}
+         className={`mt-6 px-6 py-3 sm:px-8 sm:py-4 rounded-full text-white font-semibold 
+          transition-all bg-gradient-to-r 
+          ${theme === "dark" 
+          ? 'from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700' 
+          : 'from-amber-400 to-pink-400 hover:from-amber-500 hover:to-pink-500'} 
+              hover:opacity-90 
+              shadow-lg ring-2 ring-transparent hover:ring-amber-200 dark:hover:ring-indigo-200 
+             backdrop-blur-xl text-sm sm:text-base lg:text-lg`} 
+        >
+           View Projects
+        </motion.button>
+      </Link>
+
+
         </div>
       </section>
     </main>
