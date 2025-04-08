@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 
 
+
 export default function Contact() {
   const { theme } = useTheme();
   const isLight = theme === 'light';
@@ -165,6 +166,7 @@ export default function Contact() {
 
         </form>
       </section>
+      
     </main>
   );
 }
