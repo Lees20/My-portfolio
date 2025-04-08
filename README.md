@@ -1,3 +1,37 @@
+# Personal Portfolio WebsitePersonal Portfolio Website
+
+## Description:
+
+A modern, ambient-styled portfolio built with Next.js and TailwindCSS to showcase who I am and what I build. It features a fully custom About Me page, scroll-animated timeline, and a Projects page with dynamic modals for each project. There's also a sleek Contact page that sends real emails to my professional inbox using Nodemailer.
+
+I focused on minimal, animated UI with smooth transitions, animated blobs, and full light/dark theme support. Everything's mobile-friendly, with responsive layouts and interactive touches.
+
+## Technologies used 🛠
+
+Next.js (App Router)
+
+TailwindCSS
+
+Framer Motion
+
+React / Hooks
+
+Next-Themes (light/dark mode)
+
+Nodemailer (email API)
+
+Lucide Icons
+
+.env for private credentials
+
+Custom animated blobs, gradients, hover effects, and scroll animations
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
