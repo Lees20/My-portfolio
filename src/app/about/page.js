@@ -88,7 +88,7 @@ export default function About() {
 
 
       {/* 💬 Content */}
-      <section className="relative z-10 flex-grow px-6 md:px-20 pt-28 sm:pt-36 md:pt-44 lg:pt-52 pb-16 sm:pb-32 max-w-2xl mx-auto text-center space-y-12">
+      <section className="relative z-10 flex-grow px-6 md:px-20 pt-28 sm:pt-36 md:pt-44 lg:pt-52 pb-16 sm:pb-32 max-w-4xl mx-auto text-center space-y-12">
 
       <motion.div
     initial={{ opacity: 0, y: 20 }}

@@ -75,9 +75,7 @@ export default function Projects() {
 
   return (
     <main className="relative min-h-screen bg-background text-foreground font-sans transition-colors duration-500 overflow-hidden cursor-none">
-      <Header />
-
-      {/* Page Header */}
+ 
       <section className="relative z-10 flex flex-col items-center text-center gap-16 px-6 md:px-20 pt-32 pb-28">
   <div className="space-y-6 max-w-4xl">
     <motion.h1
@@ -107,14 +105,14 @@ export default function Projects() {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: index * 0.1 }}
-        className="group relative rounded-3xl p-6 shadow-md transition-all duration-300
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          className="group relative rounded-3xl p-6 transition-all duration-500
           border border-zinc-200 dark:border-white/10
           bg-white/90 dark:bg-white/5
-          backdrop-blur-md
-          hover:shadow-[0_8px_30px_rgba(147,51,234,0.2)]
-          hover:border-indigo-400"
-      >
+          backdrop-blur-md overflow-hidden
+          hover:shadow-[0_8px_30px_rgba(147,51,234,0.3)]
+          hover:border-transparent">
+    
         <h3 className="text-xl font-semibold mb-2 text-zinc-800 dark:text-white group-hover:text-indigo-500 transition-colors">
           {project.title}
         </h3>
@@ -136,6 +134,11 @@ export default function Projects() {
 
 
 <AnimatePresence>
+  {/* Ambient Glow Ring */}
+<div className="absolute inset-0 z-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+  <div className="absolute -inset-1.5 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 blur-2xl rounded-3xl opacity-30 animate-pulse" />
+</div>
+
   {selectedProject && (
     <motion.div
       className="fixed inset-0 z-50 bg-black/60 backdrop-blur-lg flex items-center justify-center px-2 sm:px-4"
