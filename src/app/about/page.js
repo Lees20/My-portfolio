@@ -3,7 +3,12 @@
 import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import Header from '../components/header';
-
+import {
+  LayoutDashboard,
+  Zap,
+  Code,
+  BrainCog,
+} from 'lucide-react';
 export default function About() {
   const { theme } = useTheme();
   const isLight = theme === 'light';
@@ -84,44 +89,57 @@ export default function About() {
 
       {/* 💬 Content */}
       <section className="relative z-10 px-4 sm:px-6 md:px-10 lg:px-20 pt-28 pb-20 max-w-3xl mx-auto space-y-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center space-y-6"
-        >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 animate-gradient">
-            About Me
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl leading-relaxed text-muted-foreground">
-            I’m Pantelis Karabetsos — a software engineer passionate about crafting interactive and elegant digital experiences. I love blending code and design to create ambient, minimal and user-centric solutions.
-          </p>
-        </motion.div>
+      <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="text-center space-y-6"
+  >
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 animate-gradient">
+      Who I Am
+    </h1>
+    <p className="text-base sm:text-lg md:text-xl leading-relaxed text-muted-foreground">
+      I'm Pantelis Karabetsos — an Informatics & Computer Engineer from the University of West Attica, Athens.
+      I focus on blending creative design with engineering logic to build elegant, ambient and interactive web experiences.
+      My work lives at the intersection of code, design systems and motion.
+    </p>
+  </motion.div>
 
-        {/* What I Do */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-2xl px-5 sm:px-6 py-6 shadow-xl space-y-6"
-        >
-          <h2 className="text-xl sm:text-2xl font-bold text-zinc-800 dark:text-white/90">
-            What I Do
-          </h2>
-          <ul className="space-y-4 text-sm sm:text-base text-zinc-700 dark:text-muted-foreground">
-            {[
-              ['🧩', 'Designing intuitive and cohesive digital systems'],
-              ['⚡', 'Animating interfaces with Framer Motion & React'],
-              ['🛠', 'Developing full-stack apps with Next.js, Node.js, MongoDB'],
-              ['🧠', 'Exploring ambient design, generative UI, and AI tooling'],
-            ].map(([icon, text], i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span className="text-lg">{icon}</span>
-                <span>{text}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+  {/* 🛠 Expertise */}
+  <motion.div
+    initial={{ opacity: 0, scale: 0.95 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.6, delay: 0.2 }}
+    className={`relative rounded-2xl px-5 sm:px-6 py-6 shadow-xl space-y-6 border backdrop-blur-xl
+      ${isLight
+        ? 'bg-white/60 border-white/30'
+        : 'bg-white/5 border-white/10'
+      }`}
+  >
+    {/* 💫 Ambient glow for light mode */}
+    {isLight && (
+      <div className="absolute inset-0 rounded-2xl bg-white opacity-30 blur-[80px] pointer-events-none" />
+    )}
+
+    <h2 className="text-xl sm:text-2xl font-bold text-zinc-800 dark:text-white/90 relative z-10">
+      My Focus Areas
+    </h2>
+
+    <ul className="space-y-4 text-sm sm:text-base text-zinc-700 dark:text-muted-foreground relative z-10">
+      {[
+        [<LayoutDashboard className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />, 'Designing modern, accessible and consistent design systems'],
+        [<Zap className="w-5 h-5 text-pink-500 dark:text-pink-400" />, 'Bringing interfaces to life with motion and interactivity'],
+        [<Code className="w-5 h-5 text-orange-500 dark:text-orange-400" />, 'Developing full-stack solutions with React, Next.js & Node'],
+        [<BrainCog className="w-5 h-5 text-purple-500 dark:text-purple-400" />, 'Exploring the creative potential of ambient and generative UI'],
+      ].map(([icon, text], i) => (
+        <li key={i} className="flex items-start gap-3">
+          <span className="pt-[1px]">{icon}</span>
+          <span>{text}</span>
+        </li>
+      ))}
+    </ul>
+  </motion.div>
+
 
         {/* CTA */}
         <motion.div
