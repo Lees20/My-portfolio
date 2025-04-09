@@ -41,6 +41,9 @@
   }
 }
 
+
+
+
 .animate-gradient {
   background-size: 300% 300%;
   animation: gradient-move 6s ease infinite;
