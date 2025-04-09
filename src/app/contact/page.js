@@ -152,19 +152,21 @@ export default function Contact() {
             <span className="relative z-10 break-all sm:break-normal">contact@pkarabetsos.com</span>
             <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 blur-xl transition duration-300" />
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-4 h-4 text-indigo-400 group-hover:text-pink-400 transition"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0l-9.75 6.75L2.25 6.75"
-              />
-            </svg>
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  strokeWidth="1.5"
+  stroke="currentColor"
+  className="w-4 h-4 text-indigo-400 group-hover:text-pink-400 transition"
+>
+  <path
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    d="M3 6.75L12 13.5L21 6.75M4.5 6h15a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 16.5v-9A1.5 1.5 0 0 1 4.5 6Z"
+  />
+</svg>
+
+
           </a>
         </motion.div>
   
