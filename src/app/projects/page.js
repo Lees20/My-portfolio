@@ -155,10 +155,10 @@ export default function Projects() {
                    rounded-xl sm:rounded-2xl p-5 sm:p-6 group
                    scrollbar-hide sm:scrollbar-thin scrollbar-thumb-white/10"
       >
-        {/* 🔮 Glow Ring */}
+        {/*  Glow Ring */}
         <div className="absolute inset-0 border border-purple-400/20 rounded-xl blur-[100px] opacity-50 pointer-events-none z-0" />
 
-        {/* ❌ Close Button */}
+        {/* Close Button */}
         <button
           onClick={() => setSelectedProject(null)}
           className="no-cursor-label sticky top-0 z-20 ml-auto mb-3 block p-2 w-fit rounded-full bg-black/40 hover:bg-black/60 text-white text-xl sm:text-base transition"
@@ -167,13 +167,13 @@ export default function Projects() {
           ✕
         </button>
 
-        {/* 🔤 Content */}
+        {/*  Content */}
         <div className="relative z-10 space-y-4 text-sm sm:text-base">
           <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 animate-gradient">
             {selectedProject.title}
           </h2>
 
-          {/* 🖼️ Project Image */}
+          {/*  Project Image */}
           {selectedProject.image && (
             <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-white/10 shadow">
               <img
@@ -184,7 +184,7 @@ export default function Projects() {
             </div>
           )}
 
-          {/* 📝 Description */}
+          {/*  Description */}
           <div className="text-zinc-300 space-y-2 leading-relaxed whitespace-pre-wrap">
             {selectedProject.description
               .split('\n')
@@ -194,7 +194,7 @@ export default function Projects() {
               ))}
           </div>
 
-          {/* 🛠️ Tech stack */}
+          {/* Tech stack */}
           <div className="flex flex-wrap gap-2 pt-2">
             {selectedProject.tech.map((tech) => (
               <span
@@ -206,7 +206,7 @@ export default function Projects() {
             ))}
           </div>
 
-          {/* 🔗 Links */}
+          {/*  Links */}
           <div className="flex flex-col sm:flex-row gap-3 pt-3">
             {selectedProject.github && (
               <a
@@ -229,9 +229,12 @@ export default function Projects() {
               </a>
             )}
           </div>
+          
         </div>
       </motion.div>
+      
     </motion.div>
+    
   )}
 </AnimatePresence>
 

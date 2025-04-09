@@ -88,7 +88,8 @@ export default function About() {
 
 
       {/* 💬 Content */}
-      <section className="relative z-10 px-4 sm:px-6 md:px-10 lg:px-20 pt-28 pb-20 max-w-3xl mx-auto space-y-16">
+      <section className="relative z-10 flex-grow px-6 md:px-20 pt-28 sm:pt-36 md:pt-44 lg:pt-52 pb-16 sm:pb-32 max-w-2xl mx-auto text-center space-y-12">
+
       <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -96,7 +97,7 @@ export default function About() {
     className="text-center space-y-6"
   >
     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 animate-gradient">
-      Who I Am
+      About Me
     </h1>
     <p className="text-base sm:text-lg md:text-xl leading-relaxed text-muted-foreground">
       I'm Pantelis Karabetsos — an Informatics & Computer Engineer from the University of West Attica, Athens.
