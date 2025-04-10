@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
-import Header from '../components/header';
+
+
 import {
   LayoutDashboard,
   Zap,
@@ -28,9 +29,9 @@ export default function About() {
 
   return (
     <main className="relative min-h-screen bg-background text-foreground transition-colors duration-500 overflow-hidden cursor-none">
-      <Header />
+     
 
-      {/* 🔮 Main Blob */}
+      {/* Main Blob */}
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
@@ -58,7 +59,7 @@ export default function About() {
           rounded-full ${blurMain}`}
       />
 
-      {/* 🔮 Sub Blob */}
+      {/* Sub Blob */}
       <motion.div
         animate={{
           scale: [1, 1.1, 1],
@@ -85,9 +86,7 @@ export default function About() {
           brightness-110
           rounded-full ${blurSub}`}
       />
-
-
-      {/* 💬 Content */}
+      {/* Content */}
       <section className="relative z-10 flex-grow px-6 md:px-20 pt-28 sm:pt-36 md:pt-44 lg:pt-52 pb-16 sm:pb-32 max-w-4xl mx-auto text-center space-y-12">
 
       <motion.div
@@ -106,7 +105,7 @@ export default function About() {
     </p>
   </motion.div>
 
-  {/* 🛠 Expertise */}
+  {/*  Expertise */}
   <motion.div
     initial={{ opacity: 0, scale: 0.95 }}
     animate={{ opacity: 1, scale: 1 }}
@@ -117,7 +116,7 @@ export default function About() {
         : 'bg-white/5 border-white/10'
       }`}
   >
-    {/* 💫 Ambient glow for light mode */}
+    {/*  Ambient glow for light mode */}
     {isLight && (
       <div className="absolute inset-0 rounded-2xl bg-white opacity-30 blur-[80px] pointer-events-none" />
     )}
