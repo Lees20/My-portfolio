@@ -7,8 +7,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme(); // ✅ Correct usage
   const [mounted, setMounted] = useState(false);
+
   const [colors, setColors] = useCycle(
     "bg-orange-400",
     "bg-amber-400",
@@ -24,12 +25,12 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      theme === "dark" ? setDarkColors() : setColors();
+      resolvedTheme === "dark" ? setDarkColors() : setColors();
     }, 4000);
 
     setMounted(true);
     return () => clearInterval(interval);
-  }, [theme, setColors, setDarkColors]);
+  }, [resolvedTheme, setColors, setDarkColors]);
 
   if (!mounted) return null;
 
@@ -49,7 +50,7 @@ export default function Home() {
             opacity-80 dark:opacity-60
             mix-blend-multiply dark:mix-blend-screen
             transition-all duration-1000
-            ${theme === "dark" ? darkColors : colors}`}
+            ${resolvedTheme === "dark" ? darkColors : colors}`} // ✅ Fixed line
         />
       </motion.div>
 
@@ -85,33 +86,31 @@ export default function Home() {
             Building the brains behind the interface.
           </motion.p>
 
-          {/* CTA */}
+          {/* CTA Button */}
           <Link href="/projects">
-       <motion.button
-         whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)" }}
-         whileTap={{ scale: 0.98 }}
-         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-         transition={{
-         duration: 0.4,
-         ease: "easeOut",
-         type: "spring",
-        bounce: 0.25,
-       }}
-         className={`mt-6 px-6 py-3 sm:px-8 sm:py-4 rounded-full text-white font-semibold 
-          transition-all bg-gradient-to-r 
-          ${theme === "dark" 
-          ? 'from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700' 
-          : 'from-amber-400 to-pink-400 hover:from-amber-500 hover:to-pink-500'} 
-              hover:opacity-90 
-              shadow-lg ring-2 ring-transparent hover:ring-amber-200 dark:hover:ring-indigo-200 
-             backdrop-blur-xl text-sm sm:text-base lg:text-lg`} 
-        >
-           View Projects
-        </motion.button>
-      </Link>
-
-
+            <motion.button
+              whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)" }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+                type: "spring",
+                bounce: 0.25,
+              }}
+              className={`mt-6 px-6 py-3 sm:px-8 sm:py-4 rounded-full text-white font-semibold 
+                transition-all bg-gradient-to-r 
+                ${resolvedTheme === "dark" 
+                  ? 'from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700' 
+                  : 'from-amber-400 to-pink-400 hover:from-amber-500 hover:to-pink-500'} 
+                hover:opacity-90 
+                shadow-lg ring-2 ring-transparent hover:ring-amber-200 dark:hover:ring-indigo-200 
+                backdrop-blur-xl text-sm sm:text-base lg:text-lg`}
+            >
+              View Projects
+            </motion.button>
+          </Link>
         </div>
       </section>
     </main>
