@@ -13,12 +13,14 @@ const urbanist = Urbanist({
 });
 
 export default function Header() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
+
+  const activeTheme = theme === "system" ? resolvedTheme : theme;
 
   const links = [
     { name: "Home", href: "/" },
@@ -63,19 +65,19 @@ export default function Header() {
               </Link>
             ))}
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={() => setTheme(activeTheme === "dark" ? "light" : "dark")}
               className="no-cursor-label ml-4 p-2 rounded-full hover:bg-muted-foreground/10 transition"
               aria-label="Toggle theme"
             >
               <AnimatePresence mode="wait">
                 <motion.span
-                  key={theme}
+                  key={activeTheme}
                   initial={{ opacity: 0, rotate: -45, scale: 0.9 }}
                   animate={{ opacity: 1, rotate: 0, scale: 1 }}
                   exit={{ opacity: 0, rotate: 45, scale: 0.9 }}
                   transition={{ duration: 0.25 }}
                 >
-                  {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                  {activeTheme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
                 </motion.span>
               </AnimatePresence>
             </button>
@@ -114,24 +116,24 @@ export default function Header() {
             ))}
             <button
               onClick={() => {
-                setTheme(theme === "dark" ? "light" : "dark");
+                setTheme(activeTheme === "dark" ? "light" : "dark");
                 setMobileOpen(false);
               }}
               className="flex items-center gap-2 text-base font-medium text-foreground hover:text-primary transition"
             >
               <AnimatePresence mode="wait">
                 <motion.span
-                  key={theme}
+                  key={activeTheme}
                   initial={{ opacity: 0, rotate: -45, scale: 0.9 }}
                   animate={{ opacity: 1, rotate: 0, scale: 1 }}
                   exit={{ opacity: 0, rotate: 45, scale: 0.9 }}
                   transition={{ duration: 0.25 }}
                   className="block"
                 >
-                  {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                  {activeTheme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
                 </motion.span>
               </AnimatePresence>
-              {theme === "dark" ? "Light Mode" : "Dark Mode"}
+              {activeTheme === "dark" ? "Light Mode" : "Dark Mode"}
             </button>
           </motion.nav>
         )}
