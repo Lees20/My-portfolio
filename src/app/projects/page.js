@@ -161,7 +161,7 @@ export default function Projects() {
 
 {selectedProject && (
   <>
-    {/* ✅ Hide scrollbars globally when modal is open */}
+    {/* ✅ Hide scrollbars globally */}
     <style jsx global>{`
       ::-webkit-scrollbar {
         display: none;
@@ -170,10 +170,10 @@ export default function Projects() {
 
     <motion.div
       style={{
-        scrollbarWidth: 'none', // Firefox
-        msOverflowStyle: 'none', // IE/Edge
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none',
       }}
-      className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center px-4 py-8 overflow-y-auto"
+      className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center px-2 sm:px-4 py-4 sm:py-8 overflow-y-auto overscroll-contain scroll-smooth"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -185,33 +185,35 @@ export default function Projects() {
         animate={{ y: 0, opacity: 1, scale: 1 }}
         exit={{ y: 40, opacity: 0, scale: 0.95 }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
-        className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-[2.5rem] sm:rounded-[3rem] bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl p-6 sm:p-8 z-10"
+        className="relative w-full max-w-2xl max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-y-contain touch-pan-y
+                   rounded-xl sm:rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl p-4 sm:p-6 mx-auto"
       >
         {/* 🌈 Ambient Glow */}
         <motion.div
           animate={{ scale: [1, 1.04, 1] }}
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -inset-2 blur-[100px] rounded-[3rem] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-20 pointer-events-none"
+          className="absolute -inset-4 sm:-inset-2 blur-[80px] sm:blur-[100px] rounded-[2rem] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-20 pointer-events-none"
         />
 
         {/* ❌ Close Button */}
         <button
           onClick={() => setSelectedProject(null)}
-          className="no-cursor-label absolute top-4 right-4 z-40 w-10 h-10 p-0 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 text-white text-xl transition"
+          className="no-cursor-label absolute top-3 right-3 z-40 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 text-white text-lg sm:text-xl transition"
           aria-label="Close modal"
         >
           ✕
         </button>
 
-
         {/* 📦 Modal Content */}
-        <div className="relative z-10 space-y-8 text-sm sm:text-base">
-          <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 animate-gradient">
+        <div className="relative z-10 space-y-6 sm:space-y-8 text-sm sm:text-base">
+          {/* Title */}
+          <h2 className="text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 animate-gradient">
             {selectedProject.title}
           </h2>
 
+          {/* Image */}
           {selectedProject.image && (
-            <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-lg">
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 shadow-lg">
               <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
@@ -220,6 +222,7 @@ export default function Projects() {
             </div>
           )}
 
+          {/* Description */}
           <div className="text-zinc-300 space-y-3 leading-relaxed whitespace-pre-wrap">
             {selectedProject.description
               .split('\n')
@@ -229,6 +232,7 @@ export default function Projects() {
               ))}
           </div>
 
+          {/* Tech stack */}
           <div className="flex flex-wrap gap-2 pt-2">
             {selectedProject.tech.map((tech) => (
               <span
@@ -240,13 +244,14 @@ export default function Projects() {
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-3 pt-4">
+          {/* Links */}
+          <div className="flex flex-col sm:flex-row gap-3 pt-4">
             {selectedProject.github && (
               <a
                 href={selectedProject.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:opacity-90 transition shadow-md"
+                className="w-full sm:w-auto px-4 py-2 text-center rounded-full bg-white text-black text-sm font-semibold hover:opacity-90 transition shadow-md"
               >
                 GitHub
               </a>
@@ -256,7 +261,7 @@ export default function Projects() {
                 href={selectedProject.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-full bg-indigo-500 text-white text-sm font-semibold hover:bg-indigo-600 transition shadow-lg"
+                className="w-full sm:w-auto px-4 py-2 text-center rounded-full bg-indigo-500 text-white text-sm font-semibold hover:bg-indigo-600 transition shadow-lg"
               >
                 Live Demo
               </a>
@@ -267,6 +272,8 @@ export default function Projects() {
     </motion.div>
   </>
 )}
+
+
 
 
 </AnimatePresence>
