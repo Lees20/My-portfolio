@@ -161,7 +161,7 @@ export default function Projects() {
 
 {selectedProject && (
   <>
-    {/* ✅ Hide scrollbars globally */}
+    {/* Hide scrollbars globally */}
     <style jsx global>{`
       ::-webkit-scrollbar {
         display: none;
@@ -188,14 +188,14 @@ export default function Projects() {
         className="relative w-full max-w-2xl max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-y-contain touch-pan-y
                    rounded-xl sm:rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl p-4 sm:p-6 mx-auto"
       >
-        {/* 🌈 Ambient Glow */}
+        {/* Ambient Glow */}
         <motion.div
           animate={{ scale: [1, 1.04, 1] }}
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute -inset-4 sm:-inset-2 blur-[80px] sm:blur-[100px] rounded-[2rem] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-20 pointer-events-none"
         />
 
-        {/* ❌ Close Button */}
+        {/*  Close Button */}
         <button
           onClick={() => setSelectedProject(null)}
           className="no-cursor-label absolute top-3 right-3 z-40 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 text-white text-lg sm:text-xl transition"
@@ -204,7 +204,7 @@ export default function Projects() {
           ✕
         </button>
 
-        {/* 📦 Modal Content */}
+        {/*  Modal Content */}
         <div className="relative z-10 space-y-6 sm:space-y-8 text-sm sm:text-base">
           {/* Title */}
           <h2 className="text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 animate-gradient">
@@ -272,10 +272,6 @@ export default function Projects() {
     </motion.div>
   </>
 )}
-
-
-
-
 </AnimatePresence>
     </main>
   );
