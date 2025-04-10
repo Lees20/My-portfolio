@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const { resolvedTheme } = useTheme(); // ✅ Correct usage
+  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   const [colors, setColors] = useCycle(
@@ -24,13 +24,15 @@ export default function Home() {
   );
 
   useEffect(() => {
+    if (!theme) return;
+
     const interval = setInterval(() => {
-      resolvedTheme === "dark" ? setDarkColors() : setColors();
+      theme === "dark" ? setDarkColors() : setColors();
     }, 4000);
 
     setMounted(true);
     return () => clearInterval(interval);
-  }, [resolvedTheme, setColors, setDarkColors]);
+  }, [theme, setColors, setDarkColors]);
 
   if (!mounted) return null;
 
@@ -38,7 +40,7 @@ export default function Home() {
     <main className="relative min-h-screen bg-background text-foreground transition-colors font-sans overflow-hidden">
       <Header />
 
-      {/* Animated Blob (background effect) */}
+      {/* Animated Blob */}
       <motion.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -50,14 +52,13 @@ export default function Home() {
             opacity-80 dark:opacity-60
             mix-blend-multiply dark:mix-blend-screen
             transition-all duration-1000
-            ${resolvedTheme === "dark" ? darkColors : colors}`} // ✅ Fixed line
+            ${theme === "dark" ? darkColors : colors}`}
         />
       </motion.div>
 
       {/* Hero Section */}
       <section className="relative z-10 flex flex-col items-center justify-center text-center gap-8 sm:gap-12 px-4 sm:px-6 md:px-20 pt-24 sm:pt-32 pb-20 sm:pb-24 min-h-[calc(100vh-6rem)]">
         <div className="space-y-8 max-w-3xl">
-          {/* Animated Gradient Headline */}
           <div className="text-5xl sm:text-5xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-indigo-500 via-purple-500 to-fuchsia-500 animate-gradient">
             {["Engineer", "Builder", "Creator"].map((word, index) => (
               <motion.div
@@ -76,7 +77,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,7 +86,6 @@ export default function Home() {
             Building the brains behind the interface.
           </motion.p>
 
-          {/* CTA Button */}
           <Link href="/projects">
             <motion.button
               whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)" }}
@@ -101,7 +100,7 @@ export default function Home() {
               }}
               className={`mt-6 px-6 py-3 sm:px-8 sm:py-4 rounded-full text-white font-semibold 
                 transition-all bg-gradient-to-r 
-                ${resolvedTheme === "dark" 
+                ${theme === "dark" 
                   ? 'from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700' 
                   : 'from-amber-400 to-pink-400 hover:from-amber-500 hover:to-pink-500'} 
                 hover:opacity-90 
