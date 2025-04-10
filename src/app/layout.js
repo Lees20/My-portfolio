@@ -6,7 +6,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Script from 'next/script';
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { VercelToolbar } from '@vercel/toolbar/next';
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ['latin'] });
 
