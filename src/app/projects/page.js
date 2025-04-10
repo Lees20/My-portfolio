@@ -197,11 +197,12 @@ export default function Projects() {
         {/* ❌ Close Button */}
         <button
           onClick={() => setSelectedProject(null)}
-          className="no-cursor-label absolute top-4 right-4 z-20 p-2 w-fit rounded-full bg-black/50 hover:bg-black/70 text-white text-xl transition"
+          className="no-cursor-label absolute top-4 right-4 z-40 w-10 h-10 p-0 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 text-white text-xl transition"
           aria-label="Close modal"
         >
           ✕
         </button>
+
 
         {/* 📦 Modal Content */}
         <div className="relative z-10 space-y-8 text-sm sm:text-base">
