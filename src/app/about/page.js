@@ -122,23 +122,37 @@ export default function About() {
       <div className="absolute inset-0 rounded-2xl bg-white opacity-30 blur-[80px] pointer-events-none" />
     )}
 
-    <h2 className="text-xl sm:text-2xl font-bold text-zinc-800 dark:text-white/90 relative z-10">
-      My Focus Areas
-    </h2>
+      <h2 className="text-xl sm:text-2xl font-bold text-zinc-800 dark:text-white/90 relative z-10">
+        My Focus Areas
+      </h2>
 
-    <ul className="space-y-4 text-sm sm:text-base text-zinc-700 dark:text-muted-foreground relative z-10">
-      {[
-        [<LayoutDashboard className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />, 'Designing modern, accessible and consistent design systems'],
-        [<Zap className="w-5 h-5 text-pink-500 dark:text-pink-400" />, 'Bringing interfaces to life with motion and interactivity'],
-        [<Code className="w-5 h-5 text-orange-500 dark:text-orange-400" />, 'Developing full-stack solutions with React, Next.js & Node'],
-        [<BrainCog className="w-5 h-5 text-purple-500 dark:text-purple-400" />, 'Exploring the creative potential of ambient and generative UI'],
-      ].map(([icon, text], i) => (
-        <li key={i} className="flex items-start gap-3">
-          <span className="pt-[1px]">{icon}</span>
-          <span>{text}</span>
-        </li>
-      ))}
-    </ul>
+            <ul className="space-y-4 text-sm sm:text-base text-zinc-700 dark:text-muted-foreground relative z-10 pt-4">
+        {[
+          [
+            <LayoutDashboard className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />,
+            'I enjoy building systems that are easy to use, flexible, and can grow over time — whether it is for the web or something more behind-the-scenes.',
+          ],
+          [
+            <Zap className="w-5 h-5 text-pink-500 dark:text-pink-400" />,
+            'Currently exploring AI and generative tools — learning how they can enhance creativity and change how we build software.',
+          ],
+          [
+            <Code className="w-5 h-5 text-orange-500 dark:text-orange-400" />,
+            'Writing clean, testable and purposeful code — with a focus on logic, performance and real-world impact.',
+          ],
+          [
+            <BrainCog className="w-5 h-5 text-purple-500 dark:text-purple-400" />,
+            'Constantly learning and experimenting — whether through new tools, design patterns or generative UI concepts.',
+          ],
+        ].map(([icon, text], i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="pt-[1px]">{icon}</span>
+            <span>{text}</span>
+          </li>
+        ))}
+      </ul>
+
+
   </motion.div>
 
 

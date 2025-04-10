@@ -1,11 +1,11 @@
 'use client';
-
+import { useTheme } from 'next-themes';
 import { motion, AnimatePresence } from 'framer-motion';
-import Header from '../components/header';
 import { useState } from 'react';
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const { theme } = useTheme();
 
   const projects = [
     {
@@ -71,6 +71,7 @@ export default function Projects() {
       ],
       github: 'https://github.com/Lees20/My-portfolio',
     }
+    
   ];
 
   return (
@@ -134,10 +135,30 @@ export default function Projects() {
 
 
 <AnimatePresence>
-  {/* Ambient Glow Ring */}
-<div className="absolute inset-0 z-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-  <div className="absolute -inset-1.5 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 blur-2xl rounded-3xl opacity-30 animate-pulse" />
-</div>
+{theme && (
+  <motion.div
+    initial={{ scale: 1, x: 0, y: 0 }}
+    animate={{
+      scale: [1, 1.05, 1],
+      x: [0, 10, -10, 0],
+      y: [0, -10, 10, 0],
+    }}
+    transition={{
+      duration: 12,
+      repeat: Infinity,
+      ease: 'easeInOut',
+    }}
+    className={`absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full blur-[160px] opacity-40 pointer-events-none z-0
+      ${
+        theme === 'light'
+          ? 'bg-gradient-to-br from-yellow-300 via-orange-300 to-pink-300'
+          : 'bg-gradient-to-br from-pink-500 via-purple-600 to-indigo-500'
+      }
+    `}
+  />
+)}
+
+
 
   {selectedProject && (
     <motion.div
