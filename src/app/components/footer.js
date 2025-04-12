@@ -10,29 +10,14 @@ export default function Footer() {
           © {new Date().getFullYear()} Pantelis Karabetsos. All rights reserved.
         </p>
 
-        {/* Optional socials */}
-        {/* <div className="flex gap-4">
+        <div className="text-[12px]">
           <Link
-            href="https://github.com/Lees20"
-            target="_blank"
-            className="hover:text-primary transition text-[12px]"
+            href="/privacy-policy"
+            className="text-muted-foreground hover:text-primary transition"
           >
-            GitHub
+            Privacy Policy
           </Link>
-          <Link
-            href="mailto:contact@pkarabetsos.com"
-            className="hover:text-primary transition text-[12px]"
-          >
-            Email
-          </Link>
-          <Link
-            href="https://linkedin.com/in/your-link"
-            target="_blank"
-            className="hover:text-primary transition text-[12px]"
-          >
-            LinkedIn
-          </Link>
-        </div> */}
+        </div>
       </div>
     </footer>
   );
