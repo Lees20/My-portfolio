@@ -6,7 +6,7 @@ export async function POST(req) {
   const forwarded = req.headers.get("x-forwarded-for");
   const ip = forwarded ? forwarded.split(",")[0] : req.headers.get("x-real-ip") || "Unknown";
 
-  // 🌍 Detect location from IP
+  //  IP
   let location = "Unknown";
   try {
     const geoRes = await fetch(`https://ipapi.co/${ip}/json/`, {
@@ -27,7 +27,7 @@ export async function POST(req) {
     console.warn("Geolocation fetch failed", err);
   }
 
-  // 📤 Email transport via Gmail
+
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
@@ -38,7 +38,7 @@ export async function POST(req) {
     },
   });
 
-  // ✅ Main email to you
+  // Main email
   const mailOptions = {
     from: `"Pantelis Karabetsos" <${process.env.EMAIL_USER}>`,
     replyTo: email,
@@ -67,7 +67,7 @@ export async function POST(req) {
     `,
   };
 
-  // ✅ Auto-reply email
+  // Auto-reply email
   const autoReply = {
     from: `"Pantelis Karabetsos" <noreply@pkarabetsos.com>`,
     replyTo: "contact@pkarabetsos.com",
