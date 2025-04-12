@@ -10,14 +10,18 @@ export async function POST(req) {
   try {
     const geoRes = await fetch(`https://ipapi.co/${ip}/json/`);
     const geoData = await geoRes.json();
-    if (geoData && geoData.country_name) {
+
+    if (!geoData || geoData.error) {
+      console.warn("IP API returned error or empty response:", geoData);
+    } else {
       const city = geoData.city || 'Unknown city';
-      location = `${city}, ${geoData.country_name}`;
+      const country = geoData.country_name || 'Unknown country';
+      location = `${city}, ${country}`;
     }
-    
   } catch (err) {
     console.warn("Geolocation fetch failed", err);
   }
+
 
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
