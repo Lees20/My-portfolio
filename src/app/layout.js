@@ -6,7 +6,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Script from 'next/script';
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -44,29 +44,46 @@ export const metadata = {
     'user-centric developer',
     'freelance developer',
     'engineer personal site',
-  ],  
+  ],
   icons: {
     icon: '/favicon.png',
     shortcut: '/favicon.png',
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-      { url: '/maskable-icon.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' }, // optional
+      { url: '/maskable-icon.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' },
     ],
   },
 };
-
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* ✅ Plausible Analytics */}
+        {/* Plausible Analytics */}
         <Script
           async
           defer
           data-domain="panteliskarabetsos.com"
           src="https://plausible.io/js/script.js"
+        />
+
+        {/* Favicon links fallback for extra reliability */}
+        <link rel="icon" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        {/* JSON-LD logo for Google */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Pantelis Karabetsos",
+              "url": "https://panteliskarabetsos.com",
+              "logo": "https://panteliskarabetsos.com/favicon.png",
+            }),
+          }}
         />
       </head>
 
@@ -78,7 +95,7 @@ export default function RootLayout({ children }) {
             {children}
             <Footer />
             <SpeedInsights />
-        
+            <Analytics />
           </div>
         </ThemeProvider>
       </body>
