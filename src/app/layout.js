@@ -14,17 +14,15 @@ export const metadata = {
   title: 'Pantelis Karabetsos | Computer Engineer',
   description: 'Pantelis Karabetsos — software engineer crafting modern, functional and user-centric web experiences.',
   icons: {
-    icon: [
-      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon.png', sizes: '192x192', type: 'image/png' },
-    ],
+    icon: '/favicon.png',
     shortcut: '/favicon.png',
     apple: [
-      { url: '/favicon.png', sizes: '180x180' },
-      { url: '/maskable-icon.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/maskable-icon.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' }, // optional
     ],
   },
 };
+
 
 
 export default function RootLayout({ children }) {
