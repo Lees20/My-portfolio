@@ -68,10 +68,10 @@ export default function Home() {
         />
       </motion.div>
 
-      {/* 🧠 Hero Section */}
+      {/* Hero Section */}
       <section className="relative z-10 flex flex-col items-center justify-center text-center gap-8 sm:gap-12 px-4 sm:px-6 md:px-20 pt-24 sm:pt-32 pb-20 sm:pb-24 min-h-[calc(100vh-6rem)]">
         <div className="space-y-8 max-w-3xl">
-          {/* ✨ Gradient Headline */}
+          {/* Gradient Headline */}
           <div className="text-5xl sm:text-5xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-indigo-500 via-purple-500 to-fuchsia-500 animate-gradient">
             {["Engineer", "Builder", "Creator"].map((word, index) => (
               <motion.div
@@ -90,7 +90,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* 📄 Subtitle */}
+          {/*  Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -100,7 +100,7 @@ export default function Home() {
             Building the brains behind the interface.
           </motion.p>
 
-          {/* 🎯 CTA Button */}
+          {/* CTA Button */}
           <Link href="/projects">
             <motion.button
               whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)" }}

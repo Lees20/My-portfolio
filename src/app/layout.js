@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Pantelis Karabetsos | Computer Engineer',
-  description: 'Pantelis Karabetsos — software engineer crafting modern, functional, and user-centric web experiences.',
+  description: 'Pantelis Karabetsos — software engineer crafting modern, functional and user-centric web experiences.',
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",

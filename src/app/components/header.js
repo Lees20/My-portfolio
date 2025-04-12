@@ -31,7 +31,7 @@ export default function Header() {
 
   return (
     <>
-      {/* 🔹 Logo */}
+      {/* Logo */}
       <div className="fixed top-[48px] left-6 z-50">
         <Link href="/" legacyBehavior>
           <a
@@ -50,7 +50,7 @@ export default function Header() {
         </Link>
       </div>
 
-      {/* 🔸 Desktop Nav */}
+      {/*Desktop Nav */}
       <div className="hidden md:block fixed top-8 left-1/2 -translate-x-1/2 transform z-50">
         <header className="relative px-10 py-4 rounded-full border border-white/10 shadow backdrop-blur-2xl bg-background/50">
           <div className="absolute inset-0 rounded-full border border-primary/20 blur-[8px] pointer-events-none z-0" />
@@ -85,7 +85,7 @@ export default function Header() {
         </header>
       </div>
 
-      {/* 📱 Mobile Nav Toggle Button */}
+      {/*Mobile Nav Toggle Button */}
       <div className="md:hidden fixed top-9 right-6 z-50">
         <button
           onClick={() => setMobileOpen((prev) => !prev)}
@@ -95,7 +95,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* 📱 Mobile Nav Panel */}
+      {/*Mobile Nav Panel */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.nav
