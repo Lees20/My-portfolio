@@ -90,7 +90,7 @@ export async function POST(req) {
         <div style="padding: 32px 24px; font-size: 15px; color: #1f2937; line-height: 1.75;">
           <p>Hi <strong>${name}</strong>,</p>
           <p>Thank you for getting in touch! 👋</p>
-          <p>I've received your message and will personally respond as soon as possible.</p>
+          <p>I've received your message and will respond as soon as possible.</p>
           <p>If it's urgent, feel free to reply directly to this email.</p>
         </div>
   
