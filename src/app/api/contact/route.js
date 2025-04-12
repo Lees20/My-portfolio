@@ -78,14 +78,14 @@ export async function POST(req) {
       <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 20px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05); overflow: hidden; border: 1px solid #e5e7eb;">
         
         <!-- Banner -->
-        <div style="text-align: center; padding: 40px 24px; background: linear-gradient(to right, #6366f1, #8b5cf6); color: #ffffff;">
+        <div style="text-align: center; padding: 40px 24px; background: #4f46e5; background: linear-gradient(to right, #6366f1, #8b5cf6); color: #ffffff;">
           <img src="https://panteliskarabetsos.com/favicon.ico" alt="Logo" width="48" height="48" style="border-radius: 12px; margin-bottom: 16px;" />
           <h1 style="margin: 0; font-size: 24px; font-weight: 700;">✉️ Message Received</h1>
           <p style="margin-top: 8px; font-size: 16px; font-weight: 500;">
             We've got your message and will be in touch soon.
           </p>
         </div>
-
+  
         <!-- Body -->
         <div style="padding: 32px 24px; font-size: 15px; color: #1f2937; line-height: 1.75;">
           <p>Hi <strong>${name}</strong>,</p>
@@ -93,10 +93,10 @@ export async function POST(req) {
           <p>I've received your message and will personally respond as soon as possible.</p>
           <p>If it's urgent, feel free to reply directly to this email.</p>
         </div>
-
+  
         <!-- Divider -->
         <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 0 24px;" />
-
+  
         <!-- Signature / Footer -->
         <div style="padding: 24px; font-size: 14px; color: #6b7280; text-align: center;">
           <p style="margin-bottom: 6px;">— Pantelis Karabetsos</p>
