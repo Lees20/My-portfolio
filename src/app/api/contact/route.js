@@ -10,9 +10,11 @@ export async function POST(req) {
   try {
     const geoRes = await fetch(`https://ipapi.co/${ip}/json/`);
     const geoData = await geoRes.json();
-    if (geoData?.country_name) {
-      location = `${geoData.city}, ${geoData.country_name}`;
+    if (geoData && geoData.country_name) {
+      const city = geoData.city || 'Unknown city';
+      location = `${city}, ${geoData.country_name}`;
     }
+    
   } catch (err) {
     console.warn("Geolocation fetch failed", err);
   }
