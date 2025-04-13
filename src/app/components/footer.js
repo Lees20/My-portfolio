@@ -12,10 +12,10 @@ export default function Footer() {
 
         <div className="text-[12px]">
           <Link
-            href="/privacy-policy"
+            href="/legal"
             className="text-muted-foreground hover:text-primary transition"
           >
-            Privacy Policy
+            Legal
           </Link>
         </div>
       </div>
