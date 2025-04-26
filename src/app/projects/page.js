@@ -13,7 +13,7 @@ export default function Projects() {
       title: 'Agrotourism and Wellness Booking App',
       description: `This project is a modern, ambient booking platform for wellness and agritourism experiences across Crete.
       Users can explore experiences, check real-time availability, and book their spot in a seamless and mobile-friendly environment.
-      The platform focuses on simplicity, luxurious design, and exceptional user experience.`,
+      The platform focuses on simplicity, luxurious design and exceptional user experience. The admin can manage clients, the experiences and the schedule making it easy to keep track of everything.`,
       tech: ['Next.js 14', 'TailwindCSS', 'Framer Motion',' Node.js', 'Prisma ORM', 'PostgreSQL','REST API','NextAuth.js', 'Stripe','Recaptcha',],
       image: '/images/oasis.png',
       github: 'https://github.com/Lees20/pnoe',
