@@ -10,6 +10,17 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
+      title: 'Agrotourism and Wellness Booking App',
+      description: `This project is a modern, ambient booking platform for wellness and agritourism experiences across Crete.
+      Users can explore experiences, check real-time availability, and book their spot in a seamless and mobile-friendly environment.
+      The platform focuses on simplicity, luxurious design, and exceptional user experience.`,
+      tech: ['Next.js 14', 'TailwindCSS', 'Framer Motion',' Node.js', 'Prisma ORM', 'PostgreSQL','REST API','NextAuth.js', 'Stripe','Recaptcha',],
+      image: '/images/oasis.png',
+      github: 'https://github.com/Lees20/pnoe',
+      demo: 'https://youroasis.vercel.app/',
+    },   
+    {
+      id: 2,
       title: 'Apartment Booking App',
       description: `
         A complete apartment rental platform designed and built with a full-stack architecture. Users can search, view, and book vacation rentals through a clean and intuitive interface.
@@ -27,7 +38,7 @@ export default function Projects() {
       demo: 'https://book-now-amber.vercel.app/',
     },
     {
-      id: 2,
+      id: 3,
       title: 'Cardiologist Website',
       description: 'A professional, modern, and responsive portfolio site built for Dr. Marios Zisis, a recent medical graduate with a passion for cardiology and research. Designed to highlight his academic achievements, clinical interests, and recommendations, the website serves as a digital CV and a platform for professional outreach.',
       tech: ['React', 'Tailwind CSS', 'Vercel', 'Framer Motion', 'Next.js'],
@@ -36,7 +47,7 @@ export default function Projects() {
       demo: 'https://www.drzisis.com/',
     },
     {
-      id: 3,
+      id: 4,
       title: 'Web Crawler & Search Engine',
       description: 'A Python-based mini search engine that crawls Wikipedia articles, builds an inverted index, and supports Boolean queries with ranking options (TF-IDF, BM25, VSM). Includes full text preprocessing with NLTK and an interactive CLI for querying and evaluation.',
       tech: ['Python', 'NLTK', 'BeautifulSoup', 'NumPy', 'Regex','Custom IR logic'],
@@ -45,7 +56,7 @@ export default function Projects() {
       demo: '',
     },
     {
-      id: 4,
+      id: 5,
       title: 'Unit Testing App in C#',
       description: 'A C# application designed to demonstrate and validate core functionalities using unit tests with NUnit. Focused on writing clean, testable logic and achieving high code coverage through test-driven development (TDD) practices.',
       tech: ['C#', '.NET', 'NUnit', 'Testing'],
@@ -54,7 +65,7 @@ export default function Projects() {
       demo: '',
     },
     {
-      id: 5,
+      id: 6,
       title: 'Personal Portfolio Website',
       description: `
         A fully custom, animated portfolio built with Next.js and TailwindCSS.
