@@ -73,7 +73,7 @@ export default function Home() {
         <div className="space-y-8 max-w-3xl">
           {/* Gradient Headline */}
           <div className="text-5xl sm:text-5xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-indigo-500 via-purple-500 to-fuchsia-500 animate-gradient">
-            {["Engineer", "Builder", "Creator"].map((word, index) => (
+            {["Engineer", "Builder", "Dreamer"].map((word, index) => (
               <motion.div
                 key={word}
                 initial={{ opacity: 0, y: 20 }}
