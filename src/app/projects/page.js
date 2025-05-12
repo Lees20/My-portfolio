@@ -10,7 +10,7 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'Agrotourism and Wellness Booking App',
+      title: 'Oasis - Agrotourism and Wellness Booking Platform',
       description: `This project is a modern, ambient booking platform for wellness and agritourism experiences across Crete.
       Users can explore experiences, check real-time availability, and book their spot in a seamless and mobile-friendly environment.
       The platform focuses on simplicity, luxurious design and exceptional user experience. The admin can manage clients, the experiences and the schedule making it easy to keep track of everything.`,
