@@ -34,7 +34,7 @@ export default function Projects() {
         • Scalable – Modular structure enables feature expansion like auth, dashboard, and payment systems.`,
       tech: ['React', 'TailwindCSS', 'Framer Motion',' Node.js', 'Express', 'MongoDB','REST API'],
       image: '/images/booknow.png',
-      github: 'https://github.com/Lees20/BookNow',
+      github: 'https://github.com/panteliskarabetsos/BookNow',
       demo: 'https://book-now-amber.vercel.app/',
     },
     {
@@ -43,7 +43,7 @@ export default function Projects() {
       description: 'A professional, modern, and responsive portfolio site built for Dr. Marios Zisis, a recent medical graduate with a passion for cardiology and research. Designed to highlight his academic achievements, clinical interests, and recommendations, the website serves as a digital CV and a platform for professional outreach.',
       tech: ['React', 'Tailwind CSS', 'Vercel', 'Framer Motion', 'Next.js'],
       image: '/images/drzisis.png',
-      github: 'https://github.com/Lees20/drzisis-portfolio',
+      github: 'https://github.com/panteliskarabetsos/drzisis-portfolio',
       demo: 'https://www.drzisis.com/',
     },
     {
@@ -52,7 +52,7 @@ export default function Projects() {
       description: 'A Python-based mini search engine that crawls Wikipedia articles, builds an inverted index, and supports Boolean queries with ranking options (TF-IDF, BM25, VSM). Includes full text preprocessing with NLTK and an interactive CLI for querying and evaluation.',
       tech: ['Python', 'NLTK', 'BeautifulSoup', 'NumPy', 'Regex','Custom IR logic'],
      
-      github: 'https://github.com/Lees20/IR-Lab-Project',
+      github: 'https://github.com/panteliskarabetsos/IR-Lab-Project',
       demo: '',
     },
     {
@@ -61,7 +61,7 @@ export default function Projects() {
       description: 'A C# application designed to demonstrate and validate core functionalities using unit tests with NUnit. Focused on writing clean, testable logic and achieving high code coverage through test-driven development (TDD) practices.',
       tech: ['C#', '.NET', 'NUnit', 'Testing'],
      
-      github: 'https://github.com/Lees20/PayrollApp',
+      github: 'https://github.com/panteliskarabetsos/PayrollApp',
       demo: '',
     },
     {
@@ -80,7 +80,7 @@ export default function Projects() {
         'Next-Themes',
         'Lucide Icons',
       ],
-      github: 'https://github.com/Lees20/My-portfolio',
+      github: 'https://github.com/panteliskarabetsos/My-portfolio',
     }
     
   ];
