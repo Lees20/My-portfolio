@@ -274,7 +274,7 @@ export default function Projects() {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-4 py-2 text-center rounded-full bg-indigo-500 text-white text-sm font-semibold hover:bg-indigo-600 transition shadow-lg"
               >
-                Live Demo
+                Live
               </a>
             )}
           </div>
