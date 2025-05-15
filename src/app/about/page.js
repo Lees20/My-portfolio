@@ -99,9 +99,10 @@ export default function About() {
       About Me
     </h1>
     <p className="text-base sm:text-lg md:text-xl leading-relaxed text-muted-foreground">
-      I'm Pantelis Karabetsos — an Informatics & Computer Engineer from the University of West Attica, Athens.
-      I focus on blending creative design with engineering logic to build elegant, ambient and interactive web experiences.
-      My work lives at the intersection of code, design systems and motion.
+    Hi, I’m Pantelis Karabetsos — a software engineer currently studying Informatics and Computer Engineering at the University of West Attica. 
+    I love building modern web applications that combine clean design with practical functionality.
+    Whether I’m working on a full-stack project, designing smooth UI interactions, or optimizing performance, 
+    I focus on creating experiences that feel intuitive and enjoyable to use.
     </p>
   </motion.div>
 
@@ -129,19 +130,19 @@ export default function About() {
         {[
           [
             <LayoutDashboard className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />,
-            'I enjoy building systems that are easy to use, flexible, and can grow over time — whether it is for the web or something more behind-the-scenes.',
+            'I enjoy building systems that are intuitive, adaptable and built to scale, whether they live on the web or run quietly behind the scenes.',
           ],
           [
             <Zap className="w-5 h-5 text-pink-500 dark:text-pink-400" />,
-            'Currently exploring AI and generative tools — learning how they can enhance creativity and change how we build software.',
+            'Currently diving into AI and generative tools, exploring how they can push creative boundaries and reshape the way we build software.',
           ],
           [
             <Code className="w-5 h-5 text-orange-500 dark:text-orange-400" />,
-            'Writing clean, testable and purposeful code — with a focus on logic, performance and real-world impact.',
+            'Writing clean, testable and purposeful code, with a focus on logic, performance and real-world impact.',
           ],
           [
             <BrainCog className="w-5 h-5 text-purple-500 dark:text-purple-400" />,
-            'Constantly learning and experimenting — whether through new tools, design patterns or generative UI concepts.',
+            'I’m always learning and experimenting, from new technologies and design patterns to emerging ideas like generative UI.',
           ],
         ].map(([icon, text], i) => (
           <li key={i} className="flex items-start gap-3">
