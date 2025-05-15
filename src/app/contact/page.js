@@ -144,7 +144,7 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm sm:text-base text-muted-foreground"
         >
-          <span className="text-zinc-500 dark:text-zinc-400">Or email me directly:</span>
+          <span className="text-zinc-500 dark:text-zinc-400 no-cursor-label" >Or email me directly:</span>
           <a
             href="mailto:contact@pkarabetsos.com"
             className="relative inline-flex items-center gap-2 font-medium text-indigo-500 hover:text-pink-500 transition group"
