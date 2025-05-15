@@ -101,7 +101,7 @@ export default function About() {
     <p className="text-base sm:text-lg md:text-xl leading-relaxed text-muted-foreground">
     Hi, I’m Pantelis Karabetsos — a software engineer currently studying Informatics and Computer Engineering at the University of West Attica. 
     I love building modern web applications that combine clean design with practical functionality.
-    Whether I’m working on a full-stack project, designing smooth UI interactions, or optimizing performance, 
+    Whether I’m working on a full-stack project, designing UI interactions or optimizing performance, 
     I focus on creating experiences that feel intuitive and enjoyable to use.
     </p>
   </motion.div>
