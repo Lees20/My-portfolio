@@ -103,7 +103,7 @@ export default function About() {
     I enjoy building web applications that are clean, functional, and easy to use.
     Whether I’m working on a full-stack feature, designing simple UI components or improving performance, 
     I try to focus on what makes the user experience better. 
-    I’m always looking to learn, improve, and build things that are useful and reliable.
+    I’m always looking to learn, improve and build things that are useful and reliable.
     </p>
   </motion.div>
 
