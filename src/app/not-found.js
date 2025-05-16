@@ -41,7 +41,7 @@ export default function NotFound() {
         <motion.img
           src="astronaut.svg"
           alt="Lost in space"
-          className="mx-auto w-48 h-48 md:w-56 md:h-56"
+          className="mx-auto w-48 h-48 md:w-56 md:h-56 user-select-none pointer-events-none"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}
@@ -74,7 +74,7 @@ export default function NotFound() {
           This page doesn’t exist or has been moved elsewhere in the universe.
         </motion.p>
 
-        <div className="mt-20 flex justify-center">
+        <div className=" mt-20 flex justify-center">
           <Link href="/">
             <motion.button
               whileHover={{ scale: 1.08 }}
