@@ -52,7 +52,7 @@ export default function Home() {
     <main className="relative min-h-screen bg-background text-foreground font-sans transition-colors overflow-hidden">
     
 
-      {/* 🔵 Animated Blob */}
+      {/* Animated Blob */}
       <motion.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -100,7 +100,7 @@ export default function Home() {
             Building the brains behind the interface.
           </motion.p>
 
-          {/* CTA Button */}
+          {/* Contact Button */}
           <Link href="/projects">
             <motion.button
               whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)" }}
