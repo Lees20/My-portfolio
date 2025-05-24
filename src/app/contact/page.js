@@ -104,15 +104,32 @@ export default function Contact() {
             </div>
           ))}
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            type="submit"
-            disabled={isSubmitting}
-            className="no-cursor-label w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold shadow hover:opacity-90 transition text-center"
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2 mt-4">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.98 }}
+          type="submit"
+          disabled={isSubmitting}
+          className="no-cursor-label w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold shadow hover:opacity-90 transition text-center"
+        >
+          {isSubmitting ? 'Sending...' : 'Send Message'}
+        </motion.button>
+
+        <motion.p
+          initial={{ opacity: 0, y: 4 }}
+          animate={{ opacity: 0.5, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.15 }}
+          className="text-[10px] sm:text-[11px] text-muted-foreground text-center sm:text-left italic"
+        >
+          By clicking “Send Message”, you agree to our{' '}
+          <a
+            href="/legal"
+            className="underline underline-offset-2 hover:opacity-80 hover:text-indigo-400 dark:hover:text-pink-400 transition-colors"
           >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-          </motion.button>
+            legal terms
+          </a>.
+        </motion.p>
+      </div>
 
           {/* Feedback */}
           {status && (
